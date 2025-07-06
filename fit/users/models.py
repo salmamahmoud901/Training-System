@@ -20,21 +20,3 @@ class MainUser(models.Model):
         return self.name if self.name else "User"
 
 
-
-class Trainer(models.Model):
-    user = models.OneToOneField(MainUser, on_delete=models.CASCADE)
-    rating = models.DecimalField(max_digits= 5, decimal_places= 2)
-
-    def __str__(self):
-        return f"Trainer : {self.user.name if self.user else ''}"
-
-
-class Trainee(models.Model):
-    user = models.OneToOneField(MainUser, on_delete=models.CASCADE)
-    fitness_level= models.IntegerField( null=True, blank=True)
-
-    def __str__(self):
-        return f"Trainee : {self.user.name if self.user else ''}"
-
-
-
